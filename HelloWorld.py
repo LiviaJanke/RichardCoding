@@ -265,8 +265,9 @@ LiviaFamily = FamilyStructure(14, 'Lancaster', 3)
 LiviaFamily.no_of_people - RichardFamily.no_of_people
 
 
+#%%
 
-
+# I have made a change!
 
 
 
