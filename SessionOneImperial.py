@@ -20,4 +20,12 @@ resistivity_data_txt = np.loadtxt('Resistivity.txt', usecols = 1, skiprows = 5)
 
 
 
-resistivity_data_txt_v2 = np.genfromtxt('Resistivity.txt', usecols = 1, skip_header = 5)
+resistivity_data_txt_v2 = np.genfromtxt('Resistivity.txt')
+
+
+
+
+
+
+
+
