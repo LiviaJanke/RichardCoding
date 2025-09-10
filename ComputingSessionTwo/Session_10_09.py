@@ -75,17 +75,29 @@ plt.show()
 
 #%%
 
-fit_vals, cov_Cu = np.polyfit(Temp, Cu,deg = 3, w = 1/Cu_err, cov = True)
+fit_vals, cov_Cu = np.polyfit(Temp, Cu,deg = 2, w = 1/Cu_err, cov = True)
 
-np.sqrt(cov_Cu[0,0])
+# setting degree too high risks overfitting
 
-#%%
+uncert_x3 = np.sqrt(cov_Cu[0,0])
+# square root of covariance matrix diagonals give uncertainty of each fitting parameter 
+# ie standard deviation
 
 Temp_test = np.linspace(Temp[0], Temp[-1], 100)
 
+pCu = np.poly1d(fit_vals)
 
-    
+ideal_res_Cu = pCu(Temp_test)
+
+plt.errorbar(Temp, Cu, yerr = err_Cu, label = 'Cu', capsize = 1,
+             elinewidth = 1)
+plt.plot(Temp_test, ideal_res_Cu, marker = '.')
+plt.legend()
+plt.savefig('Resistivity fit', dpi = 400)
+plt.show()
+
 #%%
+
 
 
 
