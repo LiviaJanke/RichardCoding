@@ -51,31 +51,6 @@ plt.show()
 
 #%%
 
-class Resistivity():
-    def __init__(self,d):
-        res = self.value = d
-        
-    def __str__(self):
-        return self.d
-    
-    def res_plus_five(self):
-        return self.value + 5
-    
-res1 = Resistivity(1.81e-08)
-
-res1.value
-# attributes don't need brackets
-
-res1.res_plus_five()
-# open brackets represent a callable function/method of the class object
-
-#%%
-
-avg = np.mean(Cu)
-sample_std = np.std(Cu, ddof = 1)
-# ddof is 1 because this is a discrete set of data points
-sample_std_err = sample_std / np.sqrt(len(Cu))
-# this is the statistical error
 
 def find_error(data):
     avg = np.mean(data)
