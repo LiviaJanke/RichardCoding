@@ -71,15 +71,31 @@ plt.show()
 # Try adapting a linear fit to this plot from the session 10_09.py file
 
 
+#%%
 
+fit_vals, cov = np.polyfit(I_meas, V_meas ,deg = 2, cov = True)
 
+Volt_test = np.linspace(I_meas[0], I_meas[-1], 100)
 
+#%%
 
+pVolts = np.poly1d(fit_vals)
 
+ideal_volts_res = pVolts(Volt_test)
 
+#%%
 
+plt.plot(Volt_test, ideal_volts_res, label = 'fit')
+plt.plot(I_meas, V_meas, marker = '.', label = 'real')
+plt.legend()
+plt.savefig('PD_I fit', dpi = 400)
+plt.show()
 
+#%%
 
+uncert_x_sq = np.sqrt(cov[0,0]) / fit_vals[0]
+uncert_x = np.sqrt(cov[1,1]) / fit_vals[1]
+#uncert_const = np.sqrt(cov[2,2]) / fit_vals[2]
 
 
 
